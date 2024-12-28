@@ -114,7 +114,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: build-artifact
+          name: art
+
+      - name: show
+        run: ls -l
 
       - name: Build and push
         uses: docker/build-push-action@v2
