@@ -116,8 +116,11 @@ jobs:
         with:
           name: art
 
-      - name: show
-        run: ls -l
+      - name: Docker login
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -125,5 +128,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: 'false'
-          tags: test/ew:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd_github_actions:latest
 
