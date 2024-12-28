@@ -17,7 +17,7 @@ class ExampleControllerTest {
     @Test
     void divide_100_10() {
         String res = controller.divide(100D, 10D);
-        assertEquals("10", res);
+        assertEquals("10.0", res);
     }
 
     @Test

@@ -25,7 +25,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven without test
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+      run: mvn -B install --file pom.xml -Dmaven.test.skip=true
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('*/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
