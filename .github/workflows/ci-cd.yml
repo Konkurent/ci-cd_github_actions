@@ -131,11 +131,8 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd_github_actions:latest
 
       - name: Create ssh file
-        run: echo "${{ secrets.SSH }}" > ssh_key | chmod 400 ssh_key
-
-      - name: Show Key
-        run: cat ssh_key
+        run: echo "${{ secrets.SSH }}" > id_rsa
 
       - name: Connect to server
-        run: ssh -p 22 -tt -i ssh_key developer@95.217.198.136 | ls -l
+        run: ssh -p 22 -tt -i id_rsa developer@95.217.198.136 | ls -l
 
