@@ -130,6 +130,9 @@ jobs:
           push: 'true'
           tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd_github_actions:latest
 
-      - name: Install sshpass
-        run: apt install sshpass
+      - name: Create ssh file
+        run: cat ${{ secrets.SSH }} >> ssh_key
+
+      - name: Show Key
+        run: cat ssh_key
 
