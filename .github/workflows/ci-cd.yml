@@ -131,7 +131,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd_github_actions:latest
 
       - name: Create ssh file
-        run: echo "${{ secrets.SSH }}" > ssh_key
+        run: echo "${{ secrets.SSH }}" > ssh_key | chmod 400 ssh_key
 
       - name: Show Key
         run: cat ssh_key
