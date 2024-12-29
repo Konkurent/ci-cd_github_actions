@@ -130,6 +130,9 @@ jobs:
           push: 'true'
           tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd_github_actions:latest
 
+      - name: Show path
+        run: pwd
+
       - name: Create ssh file
         run: echo "${{ secrets.SSH }}" > ssh_key | chmod 400 ssh_key
 
