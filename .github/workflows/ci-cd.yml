@@ -137,5 +137,5 @@ jobs:
         run: cat ssh_key
 
       - name: Connect to server
-        run: ssh -p 22 -i ssh_key developer@95.217.198.136 | ls -l
+        run: ssh -p 22 -t -i ssh_key developer@95.217.198.136 | ls -l
 
