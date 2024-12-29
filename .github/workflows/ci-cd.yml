@@ -139,5 +139,11 @@ jobs:
 
 
       - name: Connect to server
-        run: ssh developer@95.217.198.136 'ls -l'
+        run: ssh developer@95.217.198.136 "
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io;
+            cd projects/mifi
+            docker-compose stop;
+            docker-compose pull mifi;
+            docker-compose up -d
+          "
 
