@@ -25,6 +25,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven without test
+      # собираю jar без тестов
       run: mvn -B install --file pom.xml -Dmaven.test.skip=true
     - name: Cache Maven dependencies
       uses: actions/cache@v4
@@ -33,7 +34,7 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('*/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-
+    # прихраниваю
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
