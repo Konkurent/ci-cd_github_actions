@@ -134,5 +134,5 @@ jobs:
         run: echo "${{ secrets.SSH }}" > id_rsa
 
       - name: Connect to server
-        run: ssh -p 22 -tt -i id_rsa developer@95.217.198.136 | ls -l
+        run: ssh -p 22 -tt -i id_rsa developer@95.217.198.136
 
